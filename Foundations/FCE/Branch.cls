@@ -26,6 +26,8 @@ Property Opens As %Time(MINVAL = "$ztimeh(""6:00am"")",MAXVAL="$ztimeh(""12:00n"
 Property Closes As %Time(MINVAL = "$ztimeh(""1:00pm"")",MAXVAL="$ztimeh(""10:00pm"")");
 
 
+Property CurrencyBalances as array of %Numeric (MINVAL = 0, MAXVAL = 100000000) [SqlFieldName = Balance];
+
 
 /// calculate DurationOpen from Opens, Closes
 Property DurationOpen As %String [Calculated, SqlComputed, SqlComputeCode =
@@ -82,6 +84,11 @@ Storage Default
 <Value name="6">
 <Value>Address</Value>
 </Value>
+</Data>
+<Data name="CurrencyBalances">
+<Attribute>CurrencyBalances</Attribute>
+<Structure>subnode</Structure>
+<Subscript>"CurrencyBalances"</Subscript>
 </Data>
 <DataLocation>^FCE.BranchD</DataLocation>
 <DefaultData>BranchDefaultData</DefaultData>
